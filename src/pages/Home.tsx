@@ -1,17 +1,22 @@
-import DensityButton from "../compornts/density"
-import MakeButton from "../compornts/make"
-import NumberButton from "../compornts/number"
-import ThemeButton from "../compornts/theme"
-import TitleButton from "../compornts/title"
+import ForPc from "./ForPc"
+import ForSmartphone from "./ForSmartphone"
 
-export default function Home(){
+import useMedia from "use-media"
+
+export default function Home() {
+    const App = () => {
+        const isWide = useMedia({ minWidth: "550px" });
+        const size = isWide ? true : false;
+        return size;
+    }
+
+    const Size = App();
+
     return (
-        <div>
-            <TitleButton/>
-            <ThemeButton/>
-            <NumberButton/>
-            <DensityButton/>
-            <MakeButton/>
-        </div>
+        Size === true ? (
+            <ForPc />
+        ) : (
+            <ForSmartphone />
+        )
     )
 }
