@@ -1,10 +1,25 @@
 import React, {useState} from "react"
 
 export default function NumberButton() {
+    const buttonDesign = {
+        width: "20%",
+        minWidth: "300px",
+        height: "30%",
+        opacity: "1",
+    
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    
+        fontFamily: "cursive",
+        fontSize: "20px",
+        overflow: "hiden",
+    };
+
     const [state, setState] = useState("5");
     
     return (
-        <div>
+        <div style={buttonDesign}>
             <div>3</div>
             <input
                 value={state}
