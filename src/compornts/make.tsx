@@ -1,30 +1,29 @@
 export default function MakeButton() {
+  const buttonDesign = {
+    background: "rgb(255, 255, 255)",
 
-    const buttonDesign = {
-        background: "rgb(255, 255, 255)",
+    border: "solid 2px rgb(200,200,200)",
 
-        border: "solid 2px rgb(200,200,200)",
+    width: "20%",
+    minWidth: "150px",
+    height: "30px",
+    opacity: "1",
+    borderRadius: "5px",
 
-        width: "20%",
-        minWidth: "150px",
-        height: "30px",
-        opacity: "1",
-        borderRadius: "5px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
 
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+    fontFamily: "cursive",
+    fontSize: "20px",
+    overflow: "hiden",
 
-        fontFamily: "cursive",
-        fontSize: "20px",
-        overflow: "hiden",
+    cursor: "pointer",
+  };
 
-        cursor: "pointer",
-    };
-
-    return (
-            <div style={buttonDesign}>
-                <div>make</div>
-            </div>
-    )
+  return (
+    <div style={buttonDesign}>
+      <div>make</div>
+    </div>
+  );
 }
