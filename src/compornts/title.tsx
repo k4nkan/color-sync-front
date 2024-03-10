@@ -1,33 +1,43 @@
 export default function TitleButton() {
-  const buttonDesign = {
-    background: "rgb(255, 255, 255)",
+    const buttonDesign = {
+        width:"100%",
+        display:"flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontFamily: "cursive",
+        fontSize: "20px",
+        overflow: "hiden",
+      };
+    
+      const buttonBackDesign = {
+        display: "flex",
+        width: "50%",
+        height: "80%",
+        transform: "translate(2%, 5%)",
+        minWidth: "150px",
+        background: "rgb(255, 255, 255)",
+        border: "solid 2px rgb(200, 200, 200)",
+        cursor: "pointer",
+        opacity: "1",
+        borderRadius: "5px",
+      };
+    
+      const buttonSize = {
+        display: "flex",
+        height: "100%",
+        width: "100%",
+        justifyContent: "left",
+      };
 
-    border: "solid 2px rgb(200,200,200)",
+      const reload = () => {
+        window.location.reload();
+      };
 
-    minWidth: "150px",
-    width: "20%",
-    height: "30px",
-    opacity: "1",
-    borderRadius: "5px",
-
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    fontFamily: "cursive",
-    fontSize: "20px",
-    overflow: "hiden",
-
-    cursor: "pointer",
-  };
-
-  const reload = () => {
-    window.location.reload();
-  };
-
-  return (
-    <div style={buttonDesign} onClick={reload}>
-      <div>title</div>
-    </div>
-  );
+      return (
+        <div style={buttonSize} onClick={reload}>
+          <div style={buttonBackDesign}>
+            <div style={buttonDesign}>title</div>
+          </div>
+        </div>
+      );
 }

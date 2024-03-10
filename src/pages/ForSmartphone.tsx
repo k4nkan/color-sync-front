@@ -7,33 +7,51 @@ import TitleButton from "../compornts/title";
 const pageBack = {
   width: "100%",
   height: "100vh",
+  justifyContent: "center",
+  alignItems: "center",
+};
+
+const containerStyle: React.CSSProperties = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100%",
+  height: "100vh",
+  overflow:"hidden",
   background: "rgb(250,250,250)",
 };
 
-const contentBack = {
-  height: "10%",
+const squareStyle: React.CSSProperties = {
+  width: "350px",
+  height: "25%",
+  transform: "translate(0%, -12.5%)",
+  border: "solid 2px rgb(200, 200, 200)",
 };
+
+const contentBack = {
+  height: "5%",
+};
+
+const compornts = [
+  <TitleButton />,
+  <ThemeButton />,
+  <NumberButton />,
+  <DensityButton />,
+  <MakeButton />,
+];
 
 export default function ForSmartphone() {
   return (
-    <div>
-      <div style={pageBack}>
-        <div style={contentBack}>
-          <TitleButton />
+    <div style={containerStyle}>
+      <div style={squareStyle}>
+        <div style={pageBack}>
+          {compornts.map((compornt, index) => (
+            <div key={index} style={contentBack}>
+              {compornt}
+            </div>
+          ))}
+          <div>for ForSmartphone</div>
         </div>
-        <div style={contentBack}>
-          <ThemeButton />
-        </div>
-        <div style={contentBack}>
-          <NumberButton />
-        </div>
-        <div style={contentBack}>
-          <DensityButton />
-        </div>
-        <div style={contentBack}>
-          <MakeButton />
-        </div>
-        <div>for smartphone</div>
       </div>
     </div>
   );

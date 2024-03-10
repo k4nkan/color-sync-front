@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 
 const buttonDesign = {
-  width: "20%",
-  minWidth: "300px",
-  height: "30%",
-  opacity: "1",
-
   display: "flex",
+  height:"100%",
+  width:"100%",
   justifyContent: "center",
   alignItems: "center",
 
@@ -20,7 +17,8 @@ export default function NumberButton() {
 
   return (
     <div style={buttonDesign}>
-      <div>awai</div>
+      <div>usui</div>
+      <div style={{marginLeft:"5px"}}></div>
       <input
         value={state}
         type="range"
@@ -28,7 +26,9 @@ export default function NumberButton() {
         max="100"
         step="10"
         onChange={(e) => setState(e.target.value)}
+        style={{width:"200px",}}
       />
+      <div style={{marginLeft:"10px"}}></div>
       <div>koi</div>
     </div>
   );
