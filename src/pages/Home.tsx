@@ -1,22 +1,16 @@
-import ForPc from "./ForPc"
-import ForSmartphone from "./ForSmartphone"
+import ForPc from "./ForPc";
+import ForSmartphone from "./ForSmartphone";
 
-import useMedia from "use-media"
+import useMedia from "use-media";
 
 export default function Home() {
-    const App = () => {
-        const isWide = useMedia({ minWidth: "550px" });
-        const size = isWide ? true : false;
-        return size;
-    }
+  const App = () => {
+    const isWide = useMedia({ minWidth: "550px" });
+    const size = isWide ? true : false;
+    return size;
+  };
 
-    const Size = App();
+  const Size = App();
 
-    return (
-        Size === true ? (
-            <ForPc />
-        ) : (
-            <ForSmartphone />
-        )
-    )
+  return Size === true ? <ForPc /> : <ForSmartphone />;
 }
