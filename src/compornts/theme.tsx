@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const buttonDesign = {
+const buttonDesign: React.CSSProperties = {
   display: "flex",
   height: "100%",
   width: "100%",
@@ -9,12 +9,15 @@ const buttonDesign = {
   fontFamily: "cursive",
   fontSize: "20px",
   overflow: "hiden",
+  background: "rgb(217, 217, 217)",
+  borderRadius: "15px",
 };
 
-const buttonSize = {
+const buttonSize: React.CSSProperties = {
   display: "flex",
-  height: "100%",
+  height: "90%",
   width: "100%",
+  transform: "translate(0%, 5%)",
   justifyContent: "center",
 };
 
@@ -22,14 +25,13 @@ const boxStyle: React.CSSProperties = {
   display: "flex",
   height:"60%",
   width:"200px",
-  background: "rgb(255, 255, 255)",
-  border: "solid 2px rgb(200,200,200)",
+  background: "rgb(217, 217, 217)",
+  border: "solid 2px rgb(255,255,255)",
   cursor: "pointer",
-  borderRadius: "5px",
   overflow:"hidden",
   textAlign: "center",
   fontFamily: "cursive",
-  fontSize: "15px",
+  fontSize: "17px",
 };
 
 
