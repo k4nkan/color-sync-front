@@ -17,7 +17,7 @@ const containerStyle: React.CSSProperties = {
   alignItems: "center",
   width: "100%",
   height: "100vh",
-  overflow:"hidden",
+  overflow: "hidden",
   background: "rgb(250,250,250)",
 };
 
@@ -31,24 +31,26 @@ const contentBack = {
   height: "5%",
 };
 
-const compornts = [
-  <TitleButton />,
-  <ThemeButton />,
-  <NumberButton />,
-  <DensityButton />,
-  <MakeButton />,
-];
-
 export default function ForPc() {
   return (
     <div style={containerStyle}>
       <div style={squareStyle}>
         <div style={pageBack}>
-          {compornts.map((compornt, index) => (
-            <div key={index} style={contentBack}>
-              {compornt}
-            </div>
-          ))}
+          <div style={contentBack}>
+            <TitleButton />
+          </div>
+          <div style={contentBack}>
+            <ThemeButton />
+          </div>
+          <div style={contentBack}>
+            <NumberButton />
+          </div>
+          <div style={contentBack}>
+            <DensityButton />
+          </div>
+          <div style={contentBack}>
+            <MakeButton />
+          </div>
         </div>
       </div>
     </div>
