@@ -1,38 +1,58 @@
-export default function MakeButton() {
-  const buttonDesign: React.CSSProperties = {
-    width:"100%",
-    display:"flex",
-    justifyContent: "center",
-    alignItems: "center",
-    fontFamily: "cursive",
-    fontSize: "20px",
+import React from "react";
+
+interface Props {
+  colors: { red: number; green: number; blue: number }[];
+}
+
+const buttonDesign: React.CSSProperties = {
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  fontFamily: "cursive",
+  fontSize: "20px",
+};
+
+const buttonBackDesign: React.CSSProperties = {
+  display: "flex",
+  width: "50%",
+  height: "70%",
+  transform: "translate(0%, 15%)",
+  minWidth: "150px",
+  cursor: "pointer",
+  opacity: "1",
+  borderRadius: "15px",
+};
+
+const buttonSize: React.CSSProperties = {
+  display: "flex",
+  height: "100%",
+  width: "100%",
+  justifyContent: "right",
+};
+
+const MakeButton: React.FC<Props> = ({ colors }) => {
+  const Color0 = `rgb(${colors[0].red},${colors[0].green},${colors[0].blue})`;
+  const Color1 = `rgb(${colors[1].red},${colors[1].green},${colors[1].blue})`;
+
+  const dynamicButtonBackDesign: React.CSSProperties = {
+    ...buttonBackDesign,
+    background: Color1,
+    border: `solid 2px ${Color1}`,
   };
 
-  const buttonBackDesign: React.CSSProperties = {
-    display: "flex",
-    width: "50%",
-    height: "70%",
-    transform: "translate(0%, 15%)",
-    minWidth: "150px",
-    background: "rgb(217, 217, 217)",
-    border: "solid 2px rgb(217, 217, 217)",
-    cursor: "pointer",
-    opacity: "1",
-    borderRadius: "10px",
-  };
-
-  const buttonSize: React.CSSProperties = {
-    display: "flex",
-    height: "100%",
-    width: "100%",
-    justifyContent: "right",
+  const dynamicButtondesign: React.CSSProperties = {
+    ...buttonDesign,
+    color: Color0,
   };
 
   return (
     <div style={buttonSize}>
-      <div style={buttonBackDesign}>
-        <div style={buttonDesign}>make</div>
+      <div style={dynamicButtonBackDesign}>
+        <div style={dynamicButtondesign}>make</div>
       </div>
     </div>
   );
-}
+};
+
+export default MakeButton;

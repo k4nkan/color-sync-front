@@ -1,3 +1,4 @@
+import React from "react";
 import DensityButton from "../compornts/density";
 import MakeButton from "../compornts/make";
 import NumberButton from "../compornts/number";
@@ -17,42 +18,50 @@ const containerStyle: React.CSSProperties = {
   alignItems: "center",
   width: "100%",
   height: "100vh",
-  overflow:"hidden",
-  background: "rgb(250,250,250)",
+  overflow: "hidden",
+  background: "rgb(255,255,255)",
 };
 
 const squareStyle: React.CSSProperties = {
   width: "350px",
   height: "25%",
   transform: "translate(0%, -12.5%)",
-  border: "solid 2px rgb(200, 200, 200)",
 };
 
 const contentBack = {
   height: "5%",
 };
 
-const compornts = [
-  <TitleButton />,
-  <ThemeButton />,
-  <NumberButton />,
-  <DensityButton />,
-  <MakeButton />,
-];
+const ForSmartphone: React.FC = () => {
+  const colors = [
+    {red:217, green:217, blue:217},
+    {red:0, green:0, blue:0},
+    {red:255, green:255, blue:255}
+  ];
 
-export default function ForSmartphone() {
   return (
     <div style={containerStyle}>
       <div style={squareStyle}>
         <div style={pageBack}>
-          {compornts.map((compornt, index) => (
-            <div key={index} style={contentBack}>
-              {compornt}
-            </div>
-          ))}
-          <div>for ForSmartphone</div>
+          <div style={contentBack}>
+            <TitleButton colors={colors}/>
+          </div>
+          <div style={contentBack}>
+            <ThemeButton colors={colors}/>
+          </div>
+          <div style={contentBack}>
+            <NumberButton colors={colors}/>
+          </div>
+          <div style={contentBack}>
+            <DensityButton colors={colors}/>
+          </div>
+          <div style={contentBack}>
+            <MakeButton colors={colors}/>
+          </div>
         </div>
       </div>
     </div>
   );
 }
+
+export default ForSmartphone;
