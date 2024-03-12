@@ -34,9 +34,9 @@ const contentBack = {
 
 const ForSmartphone: React.FC = () => {
   const colors = [
-    {red:217, green:217, blue:217},
-    {red:0, green:0, blue:0},
-    {red:255, green:255, blue:255}
+    { red: 0, green: 0, blue: 0 },
+    { red: 217, green: 217, blue: 217 },
+    { red: 255, green: 255, blue: 255 },
   ];
 
   return (
@@ -44,24 +44,24 @@ const ForSmartphone: React.FC = () => {
       <div style={squareStyle}>
         <div style={pageBack}>
           <div style={contentBack}>
-            <TitleButton colors={colors}/>
+            <TitleButton colors={colors} />
           </div>
           <div style={contentBack}>
-            <ThemeButton colors={colors}/>
+            <ThemeButton colors={colors} />
           </div>
           <div style={contentBack}>
-            <NumberButton colors={colors}/>
+            <NumberButton colors={colors} />
           </div>
           <div style={contentBack}>
-            <DensityButton colors={colors}/>
+            <DensityButton colors={colors} />
           </div>
           <div style={contentBack}>
-            <MakeButton colors={colors}/>
+            <MakeButton colors={colors} />
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default ForSmartphone;
