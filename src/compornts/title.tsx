@@ -16,8 +16,8 @@ const buttonDesign: React.CSSProperties = {
 const buttonBackDesign: React.CSSProperties = {
   display: "flex",
   width: "50%",
-  height: "70%",
-  transform: "translate(0%, 15%)",
+  height: "100%",
+  transform: "translate(0%, 0%)",
   minWidth: "150px",
   cursor: "pointer",
   opacity: "1",
@@ -26,7 +26,7 @@ const buttonBackDesign: React.CSSProperties = {
 
 const buttonSize: React.CSSProperties = {
   display: "flex",
-  height: "100%",
+  height: "95%",
   width: "100%",
   justifyContent: "left",
 };
@@ -36,18 +36,17 @@ const reload = () => {
 };
 
 const TitleButton: React.FC<Props> = ({ colors }) => {
-  const Color1 = `rgb(${colors[0].red},${colors[0].green},${colors[0].blue})`;
-  const Color2 = `rgb(${colors[1].red},${colors[1].green},${colors[1].blue})`;
+  const Color0 = `rgb(${colors[0].red},${colors[0].green},${colors[0].blue})`;
+  const Color1 = `rgb(${colors[1].red},${colors[1].green},${colors[1].blue})`;
 
   const dynamicButtonBackDesign: React.CSSProperties = {
     ...buttonBackDesign,
-    background: Color2,
-    border: `solid 2px ${Color2}`,
+    background: Color1,
   };
 
   const dynamicButtondesign: React.CSSProperties = {
     ...buttonDesign,
-    color: Color1,
+    color: Color0,
   };
 
   return (

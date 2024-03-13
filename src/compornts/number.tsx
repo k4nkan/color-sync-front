@@ -24,14 +24,14 @@ const StyledRangeInput = styled.input<{ Color0: string; Color2: string }>`
 
 const buttonDesign: React.CSSProperties = {
   display: "flex",
-  height: "90%",
+  height: "95%",
   width: "100%",
-  transform: "translate(0%, 5%)",
+  transform: "translate(0%, 0%)",
   justifyContent: "center",
   alignItems: "center",
   fontFamily: "cursive",
   fontSize: "20px",
-  overflow: "hidden",
+  overflow: "hiden",
   borderRadius: "15px",
 };
 

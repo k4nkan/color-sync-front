@@ -16,8 +16,8 @@ const buttonDesign: React.CSSProperties = {
 const buttonBackDesign: React.CSSProperties = {
   display: "flex",
   width: "50%",
-  height: "70%",
-  transform: "translate(0%, 15%)",
+  height: "100%",
+  transform: "translate(0%, 0%)",
   minWidth: "150px",
   cursor: "pointer",
   opacity: "1",
@@ -26,7 +26,7 @@ const buttonBackDesign: React.CSSProperties = {
 
 const buttonSize: React.CSSProperties = {
   display: "flex",
-  height: "100%",
+  height: "95%",
   width: "100%",
   justifyContent: "right",
 };
@@ -38,7 +38,6 @@ const MakeButton: React.FC<Props> = ({ colors }) => {
   const dynamicButtonBackDesign: React.CSSProperties = {
     ...buttonBackDesign,
     background: Color1,
-    border: `solid 2px ${Color1}`,
   };
 
   const dynamicButtondesign: React.CSSProperties = {

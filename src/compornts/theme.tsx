@@ -9,6 +9,7 @@ const buttonDesign: React.CSSProperties = {
   display: "flex",
   height: "100%",
   width: "100%",
+  transform: "translate(0%, 0%)",
   justifyContent: "center",
   alignItems: "center",
   fontFamily: "cursive",
@@ -19,15 +20,14 @@ const buttonDesign: React.CSSProperties = {
 
 const buttonSize: React.CSSProperties = {
   display: "flex",
-  height: "90%",
+  height: "95%",
   width: "100%",
-  transform: "translate(0%, 5%)",
   justifyContent: "center",
 };
 
 const boxStyle: React.CSSProperties = {
   display: "flex",
-  height: "60%",
+  height: "65%",
   width: "200px",
   cursor: "pointer",
   overflow: "hidden",

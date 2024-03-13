@@ -24,9 +24,9 @@ const StyledRangeInput = styled.input<{ Color0: string; Color2: string }>`
 
 const buttonDesign: React.CSSProperties = {
   display: "flex",
-  height: "90%",
+  height: "95%",
   width: "100%",
-  transform: "translate(0%, 5%)",
+  transform: "translate(0%, 0%)",
   justifyContent: "center",
   alignItems: "center",
   fontFamily: "cursive",
@@ -35,7 +35,7 @@ const buttonDesign: React.CSSProperties = {
   borderRadius: "15px",
 };
 
-const NumberButton: React.FC<Props> = ({ colors }) => {
+const DensityButton: React.FC<Props> = ({ colors }) => {
   const Color0 = `rgb(${colors[0].red},${colors[0].green},${colors[0].blue})`;
   const Color1 = `rgb(${colors[1].red},${colors[1].green},${colors[1].blue})`;
   const Color2 = `rgb(${colors[2].red},${colors[2].green},${colors[2].blue})`;
@@ -69,4 +69,4 @@ const NumberButton: React.FC<Props> = ({ colors }) => {
   );
 };
 
-export default NumberButton;
+export default DensityButton;
