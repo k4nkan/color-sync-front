@@ -40,12 +40,12 @@ const ForSmartphone: React.FC = () => {
     { red: 255, green: 255, blue: 255 },
   ];
 
-  const handleClick = () => {
+  const handlePopUp = () => {
     popUp({colors});
   };
 
   return (
-    <div style={containerStyle} onClick={handleClick}>
+    <div style={containerStyle} onClick={handlePopUp}>
       <div style={squareStyle}>
         <div style={pageBack}>
           <div style={contentBack}>
