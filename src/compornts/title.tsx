@@ -25,7 +25,7 @@ const buttonBackDesign: React.CSSProperties = {
 
 const buttonSize: React.CSSProperties = {
   display: "flex",
-  height: "95%",
+  height: "90%",
   width: "100%",
   justifyContent: "left",
 };
@@ -48,10 +48,16 @@ const TitleButton: React.FC<Props> = ({ colors }) => {
     color: Color0,
   };
 
+  const handlePopUp = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
+
   return (
-    <div style={buttonSize} onClick={reload}>
-      <div style={dynamicButtonBackDesign}>
-        <div style={dynamicButtondesign}>ColorSync</div>
+    <div style={buttonSize}>
+      <div onClick={handlePopUp}>
+        <div style={dynamicButtonBackDesign} onClick={reload}>
+          <div style={dynamicButtondesign}>ColorSync</div>
+        </div>
       </div>
     </div>
   );

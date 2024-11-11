@@ -24,7 +24,7 @@ const StyledRangeInput = styled.input<{ Color0: string; Color2: string }>`
 
 const buttonDesign: React.CSSProperties = {
   display: "flex",
-  height: "95%",
+  height: "90%",
   width: "100%",
   transform: "translate(0%, 0%)",
   justifyContent: "center",
@@ -47,8 +47,12 @@ const NumberButton: React.FC<Props> = ({ colors }) => {
 
   const [state, setState] = useState("5");
 
+  const handlePopUp = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  }
+
   return (
-    <div style={dynamicButtonDesign}>
+    <div style={dynamicButtonDesign} onClick={handlePopUp}>
       <div>3</div>
       <div style={{ marginLeft: "10px" }}></div>
       <StyledRangeInput

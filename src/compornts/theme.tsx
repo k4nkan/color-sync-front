@@ -19,14 +19,14 @@ const buttonDesign: React.CSSProperties = {
 
 const buttonSize: React.CSSProperties = {
   display: "flex",
-  height: "95%",
+  height: "90%",
   width: "100%",
   justifyContent: "center",
 };
 
 const boxStyle: React.CSSProperties = {
   display: "flex",
-  height: "65%",
+  height: "60%",
   width: "200px",
   cursor: "pointer",
   overflow: "hidden",
@@ -57,8 +57,12 @@ const ThemeButton: React.FC<Props> = ({ colors }) => {
 
   const [state, setState] = useState("random");
 
+  const handlePopUp = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  }
+
   return (
-    <div style={buttonSize}>
+    <div style={buttonSize} onClick={handlePopUp}>
       <div style={dynamicButtonDesign}>
         <div>theme</div>
         <div style={{ marginLeft: "10px" }}></div>
