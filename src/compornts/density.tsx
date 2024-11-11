@@ -24,7 +24,7 @@ const StyledRangeInput = styled.input<{ Color0: string; Color2: string }>`
 
 const buttonDesign: React.CSSProperties = {
   display: "flex",
-  height: "95%",
+  height: "90%",
   width: "100%",
   transform: "translate(0%, 0%)",
   justifyContent: "center",
@@ -45,10 +45,14 @@ const DensityButton: React.FC<Props> = ({ colors }) => {
     background: `${Color1}`,
   };
 
+  const handlePopUp = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
+
   const [state, setState] = useState("50");
 
   return (
-    <div style={dynamicButtonDesign}>
+    <div style={dynamicButtonDesign} onClick={handlePopUp}>
       <div>usui</div>
       <div style={{ marginLeft: "5px" }}></div>
       <StyledRangeInput

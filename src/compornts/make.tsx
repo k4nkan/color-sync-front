@@ -25,7 +25,7 @@ const buttonBackDesign: React.CSSProperties = {
 
 const buttonSize: React.CSSProperties = {
   display: "flex",
-  height: "95%",
+  height: "90%",
   width: "100%",
   justifyContent: "right",
 };
@@ -44,9 +44,13 @@ const MakeButton: React.FC<Props> = ({ colors }) => {
     color: Color0,
   };
 
+  const handlePopUp = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  }
+
   return (
     <div style={buttonSize}>
-      <div style={dynamicButtonBackDesign}>
+      <div style={dynamicButtonBackDesign} onClick={handlePopUp}>
         <div style={dynamicButtondesign}>make</div>
       </div>
     </div>
