@@ -4,7 +4,7 @@ import MakeButton from "../compornts/make";
 import NumberButton from "../compornts/number";
 import ThemeButton from "../compornts/theme";
 import TitleButton from "../compornts/title";
-import {popUp} from "../compornts/popUp";
+import popUp from "../compornts/popUp";
 
 const pageBack = {
   width: "100%",
@@ -40,8 +40,12 @@ const ForSmartphone: React.FC = () => {
     { red: 255, green: 255, blue: 255 },
   ];
 
+  const handleClick = () => {
+    popUp({colors});
+  };
+
   return (
-    <div style={containerStyle} onClick={popUp}>
+    <div style={containerStyle} onClick={handleClick}>
       <div style={squareStyle}>
         <div style={pageBack}>
           <div style={contentBack}>
