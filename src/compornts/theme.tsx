@@ -12,7 +12,6 @@ const buttonDesign: React.CSSProperties = {
   transform: "translate(0%, 0%)",
   justifyContent: "center",
   alignItems: "center",
-  fontFamily: "cursive",
   fontSize: "20px",
   overflow: "hiden",
   borderRadius: "15px",
@@ -32,7 +31,6 @@ const boxStyle: React.CSSProperties = {
   cursor: "pointer",
   overflow: "hidden",
   textAlign: "center",
-  fontFamily: "cursive",
   fontSize: "17px",
 };
 

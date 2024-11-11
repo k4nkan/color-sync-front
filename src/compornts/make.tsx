@@ -9,7 +9,6 @@ const buttonDesign: React.CSSProperties = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  fontFamily: "cursive",
   fontSize: "20px",
 };
 
