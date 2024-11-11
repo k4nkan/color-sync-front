@@ -4,6 +4,7 @@ import MakeButton from "../compornts/make";
 import NumberButton from "../compornts/number";
 import ThemeButton from "../compornts/theme";
 import TitleButton from "../compornts/title";
+import popUp from "../compornts/popUp";
 
 const pageBack = {
   width: "100%",
@@ -39,8 +40,12 @@ const ForPc: React.FC = () => {
     { red: 255, green: 255, blue: 255 },
   ];
 
+  const handlePopUp = () => {
+    popUp({ colors });
+  };
+
   return (
-    <div style={containerStyle}>
+    <div style={containerStyle} onClick={handlePopUp}>
       <div style={squareStyle}>
         <div style={pageBack}>
           <div style={contentBack}>
