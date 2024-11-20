@@ -56,7 +56,7 @@ const TitleButton: React.FC<Props> = ({ colors }) => {
     <div style={buttonSize}>
       <div onClick={handlePopUp}>
         <div style={dynamicButtonBackDesign} onClick={reload}>
-          <div style={dynamicButtondesign}>ColorSync</div>
+          <div style={dynamicButtondesign}>title</div>
         </div>
       </div>
     </div>
