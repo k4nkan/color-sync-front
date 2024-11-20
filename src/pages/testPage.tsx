@@ -13,7 +13,6 @@ const containerStyle: React.CSSProperties = {
   width: "100%",
   height: "100vh",
   overflow: "hidden",
-  background: "rgb(255,255,255)",
 };
 
 const squareStyle: React.CSSProperties = {
@@ -99,6 +98,11 @@ const TestPage: React.FC = () => {
     event.stopPropagation();
   };
 
+  const dynamicContainerStyle: React.CSSProperties = {
+    ...containerStyle,
+    background: Color2,
+  }
+
   const dynamicButtonBackDesign: React.CSSProperties = {
     ...buttonBackDesign,
     background: Color1,
@@ -120,7 +124,7 @@ const TestPage: React.FC = () => {
   };
 
   return (
-    <div style={containerStyle} onClick={handlePopUpColor}>
+    <div style={dynamicContainerStyle} onClick={handlePopUpColor}>
       <div style={squareStyle}>
         <div style={pageBack}>
           <div style={contentBack}>
