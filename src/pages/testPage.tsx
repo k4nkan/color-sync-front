@@ -114,19 +114,47 @@ const reload = () => {
 };
 
 const TestPage: React.FC = () => {
-  const colors = [
+  const [colors, setColors] = useState([
     { red: 0, green: 0, blue: 0 },
     { red: 217, green: 217, blue: 217 },
     { red: 255, green: 255, blue: 255 },
-  ];
+  ]);
 
   const Color0 = `rgb(${colors[0].red},${colors[0].green},${colors[0].blue})`;
   const Color1 = `rgb(${colors[1].red},${colors[1].green},${colors[1].blue})`;
   const Color2 = `rgb(${colors[2].red},${colors[2].green},${colors[2].blue})`;
 
-  const [themeState, setThemeState] = useState("random");
-  const [densityState, setDensityState] = useState("50");
-  const [numberState, setNumberState] = useState("5");
+  const [themeState, setThemeState] = useState("sky");
+  const [densityState, setDensityState] = useState("10");
+  const [numberState, setNumberState] = useState("3");
+
+  const fetchColors = async () => {
+    console.log("now loading");
+    try {
+      const response = await fetch(
+        `https://color-sync-back.vercel.app/api/chat?theme=${themeState}&number=${numberState}&density=${densityState}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch colors");
+
+      const textData = await response.text(); // プレーンテキストとしてデータ取得
+      const newColors = textData
+        .trim()
+        .split(";") // セミコロンで分割
+        .map((colorString) => {
+          const [red, green, blue] = colorString.split(",").map(Number); // カンマで分割し数値に変換
+          return { red, green, blue };
+        });
+
+      setColors(newColors); // colors 配列を更新
+    } catch (error) {
+      console.error("Error fetching colors:", error);
+    }
+  };
+
+  const handleMakeButtonClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    fetchColors(); // データをフェッチして状態を更新
+  };
 
   const handlePopUpColor = () => {
     popUp({ colors });
@@ -245,7 +273,10 @@ const TestPage: React.FC = () => {
           <div style={contentBack}>
             <div style={buttonSize}>
               <div style={dynamicMakeButtonBackDesign} onClick={handlePopUp}>
-                <div style={dynamicButtonDesign} onClick={reload}>
+                <div
+                  style={dynamicButtonDesign}
+                  onClick={handleMakeButtonClick}
+                >
                   make
                 </div>
               </div>
