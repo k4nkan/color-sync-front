@@ -124,7 +124,7 @@ const TestPage: React.FC = () => {
   const Color1 = `rgb(${colors[1].red},${colors[1].green},${colors[1].blue})`;
   const Color2 = `rgb(${colors[2].red},${colors[2].green},${colors[2].blue})`;
 
-  const [state, setState] = useState("random");
+  const [themeState, setThemeState] = useState("random");
   const [densityState, setDensityState] = useState("50");
   const [numberState, setNumberState] = useState("5");
 
@@ -175,7 +175,7 @@ const TestPage: React.FC = () => {
             <div style={buttonSize}>
               <div style={dynamicTitleButtonBackDesign} onClick={handlePopUp}>
                 <div style={dynamicButtonDesign} onClick={reload}>
-                  title
+                  ColorSync
                 </div>
               </div>
             </div>
@@ -187,9 +187,9 @@ const TestPage: React.FC = () => {
                   theme
                 </div>
                 <StyleText
-                  value={state}
+                  value={themeState}
                   type="text"
-                  onChange={(e) => setState(e.target.value)}
+                  onChange={(e) => setThemeState(e.target.value)}
                   style={dynamicFormStyle}
                   Color0={Color0}
                 />
