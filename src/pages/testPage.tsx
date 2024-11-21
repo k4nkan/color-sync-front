@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import popUp from "../compornts/popUp";
+import styled from "styled-components";
 
 const pageBack = {
   width: "100%",
@@ -75,6 +76,39 @@ const buttonSize: React.CSSProperties = {
   justifyContent: "left",
 };
 
+const formStyle: React.CSSProperties = {
+  display: "flex",
+  height: "60%",
+  width: "150%",
+  cursor: "pointer",
+  overflow: "hidden",
+  textAlign: "center",
+  fontSize: "17px",
+  transform: "translate(-5%, 15%)",
+};
+
+const StyledRangeInput = styled.input<{ Color0: string; Color2: string }>`
+  width: 100%;
+  height: 4px;
+  transform: translate(0%, 400%);
+  background-color: ${({ Color2 }) => Color2};
+  border-radius: 10px;
+  -webkit-appearance: none;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: ${({ Color0 }) => Color0};
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+`;
+
+const StyleText = styled.input<{ Color0: string }>`
+  color: ${({ Color0 }) => Color0};
+`;
+
 const reload = () => {
   window.location.reload();
 };
@@ -90,6 +124,10 @@ const TestPage: React.FC = () => {
   const Color1 = `rgb(${colors[1].red},${colors[1].green},${colors[1].blue})`;
   const Color2 = `rgb(${colors[2].red},${colors[2].green},${colors[2].blue})`;
 
+  const [state, setState] = useState("random");
+  const [densityState, setDensityState] = useState("50");
+  const [numberState, setNumberState] = useState("5");
+
   const handlePopUpColor = () => {
     popUp({ colors });
   };
@@ -101,7 +139,7 @@ const TestPage: React.FC = () => {
   const dynamicContainerStyle: React.CSSProperties = {
     ...containerStyle,
     background: Color2,
-  }
+  };
 
   const dynamicButtonBackDesign: React.CSSProperties = {
     ...buttonBackDesign,
@@ -123,6 +161,12 @@ const TestPage: React.FC = () => {
     color: Color0,
   };
 
+  const dynamicFormStyle: React.CSSProperties = {
+    ...formStyle,
+    background: `${Color1}`,
+    border: `solid 2px ${Color2}`,
+  };
+
   return (
     <div style={dynamicContainerStyle} onClick={handlePopUpColor}>
       <div style={squareStyle}>
@@ -142,6 +186,13 @@ const TestPage: React.FC = () => {
                 <div style={dynamicButtonDesign} onClick={reload}>
                   theme
                 </div>
+                <StyleText
+                  value={state}
+                  type="text"
+                  onChange={(e) => setState(e.target.value)}
+                  style={dynamicFormStyle}
+                  Color0={Color0}
+                />
               </div>
             </div>
           </div>
@@ -149,7 +200,21 @@ const TestPage: React.FC = () => {
             <div style={buttonSize}>
               <div style={dynamicButtonBackDesign} onClick={handlePopUp}>
                 <div style={dynamicButtonDesign} onClick={reload}>
-                  number
+                  3
+                </div>
+                <StyledRangeInput
+                  value={numberState}
+                  type="range"
+                  min="3"
+                  max="7"
+                  step="1"
+                  onChange={(e) => setNumberState(e.target.value)}
+                  style={{ width: "100%" }}
+                  Color0={Color0}
+                  Color2={Color2}
+                />
+                <div style={dynamicButtonDesign} onClick={reload}>
+                  7
                 </div>
               </div>
             </div>
@@ -158,7 +223,21 @@ const TestPage: React.FC = () => {
             <div style={buttonSize}>
               <div style={dynamicButtonBackDesign} onClick={handlePopUp}>
                 <div style={dynamicButtonDesign} onClick={reload}>
-                  dencity
+                  usui
+                </div>
+                <StyledRangeInput
+                  value={densityState}
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="10"
+                  onChange={(e) => setDensityState(e.target.value)}
+                  style={{ width: "100%" }}
+                  Color0={Color0}
+                  Color2={Color2}
+                />
+                <div style={dynamicButtonDesign} onClick={reload}>
+                  koi
                 </div>
               </div>
             </div>
