@@ -125,7 +125,7 @@ const TestPage: React.FC = () => {
   const Color2 = `rgb(${colors[2].red},${colors[2].green},${colors[2].blue})`;
 
   const [themeState, setThemeState] = useState("sky");
-  const [densityState, setDensityState] = useState("10");
+  const [densityState, setDensityState] = useState("0");
   const [numberState, setNumberState] = useState("3");
 
   const fetchColors = async () => {
@@ -146,6 +146,7 @@ const TestPage: React.FC = () => {
         });
 
       setColors(newColors); // colors 配列を更新
+      console.log("done");
     } catch (error) {
       console.error("Error fetching colors:", error);
     }
