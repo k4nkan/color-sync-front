@@ -126,7 +126,6 @@ const MainPage: React.FC = () => {
 
   const [themeState, setThemeState] = useState("sky");
   const [densityState, setDensityState] = useState("0");
-  const [numberState, setNumberState] = useState("3");
 
   const [loading, setLoading] = useState(false);
 
@@ -135,7 +134,7 @@ const MainPage: React.FC = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://color-sync-back.vercel.app/api/chat?theme=${themeState}&number=${numberState}&density=${densityState}`
+        `https://color-sync-back.vercel.app/api/chat?theme=${themeState}&density=${densityState}`
       );
       if (!response.ok) throw new Error("Failed to fetch colors");
 
