@@ -1,7 +1,4 @@
-import ForPc from "./ForPc";
-import ForSmartphone from "./ForSmartphone";
-
-import TestPage from "./testPage";
+import MainPage from "./mainPage";
 
 import useMedia from "use-media";
 
@@ -14,5 +11,5 @@ export default function Home() {
 
   const Size = App();
 
-  return Size === true ? <ForPc /> : <TestPage/>;
+  return Size === true ? <MainPage /> : <MainPage />;
 }

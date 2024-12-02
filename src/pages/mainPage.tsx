@@ -18,7 +18,7 @@ const containerStyle: React.CSSProperties = {
 
 const squareStyle: React.CSSProperties = {
   width: "350px",
-  height: "25%",
+  height: "20%",
   transform: "translate(0%, -12.5%)",
 };
 
@@ -113,7 +113,7 @@ const reload = () => {
   window.location.reload();
 };
 
-const TestPage: React.FC = () => {
+const MainPage: React.FC = () => {
   const [colors, setColors] = useState([
     { red: 0, green: 0, blue: 0 },
     { red: 217, green: 217, blue: 217 },
@@ -125,11 +125,14 @@ const TestPage: React.FC = () => {
   const Color2 = `rgb(${colors[2].red},${colors[2].green},${colors[2].blue})`;
 
   const [themeState, setThemeState] = useState("sky");
-  const [densityState, setDensityState] = useState("10");
+  const [densityState, setDensityState] = useState("0");
   const [numberState, setNumberState] = useState("3");
+
+  const [loading, setLoading] = useState(false);
 
   const fetchColors = async () => {
     console.log("now loading");
+    setLoading(true);
     try {
       const response = await fetch(
         `https://color-sync-back.vercel.app/api/chat?theme=${themeState}&number=${numberState}&density=${densityState}`
@@ -145,6 +148,7 @@ const TestPage: React.FC = () => {
           return { red, green, blue };
         });
 
+      setLoading(false);
       setColors(newColors); // colors 配列を更新
     } catch (error) {
       console.error("Error fetching colors:", error);
@@ -196,96 +200,85 @@ const TestPage: React.FC = () => {
   };
 
   return (
-    <div style={dynamicContainerStyle} onClick={handlePopUpColor}>
-      <div style={squareStyle}>
-        <div style={pageBack}>
-          <div style={contentBack}>
-            <div style={buttonSize}>
-              <div style={dynamicTitleButtonBackDesign} onClick={handlePopUp}>
-                <div style={dynamicButtonDesign} onClick={reload}>
-                  ColorSync
+    <>
+      {loading ? (
+        <div>now loading</div>
+      ) : (
+        <div style={dynamicContainerStyle} onClick={handlePopUpColor}>
+          <div style={squareStyle}>
+            <div style={pageBack}>
+              <div style={contentBack}>
+                <div style={buttonSize}>
+                  <div
+                    style={dynamicTitleButtonBackDesign}
+                    onClick={handlePopUp}
+                  >
+                    <div style={dynamicButtonDesign} onClick={reload}>
+                      ColorSync
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div style={contentBack}>
-            <div style={buttonSize}>
-              <div style={dynamicButtonBackDesign} onClick={handlePopUp}>
-                <div style={dynamicButtonDesign} onClick={reload}>
-                  theme
-                </div>
-                <StyleText
-                  value={themeState}
-                  type="text"
-                  onChange={(e) => setThemeState(e.target.value)}
-                  style={dynamicFormStyle}
-                  Color0={Color0}
-                />
-              </div>
-            </div>
-          </div>
-          <div style={contentBack}>
-            <div style={buttonSize}>
-              <div style={dynamicButtonBackDesign} onClick={handlePopUp}>
-                <div style={dynamicButtonDesign} onClick={reload}>
-                  3
-                </div>
-                <StyledRangeInput
-                  value={numberState}
-                  type="range"
-                  min="3"
-                  max="7"
-                  step="1"
-                  onChange={(e) => setNumberState(e.target.value)}
-                  style={{ width: "100%" }}
-                  Color0={Color0}
-                  Color2={Color2}
-                />
-                <div style={dynamicButtonDesign} onClick={reload}>
-                  7
+              <div style={contentBack}>
+                <div style={buttonSize}>
+                  <div style={dynamicButtonBackDesign} onClick={handlePopUp}>
+                    <div style={dynamicButtonDesign} onClick={reload}>
+                      theme
+                    </div>
+                    <StyleText
+                      value={themeState}
+                      type="text"
+                      onChange={(e) => setThemeState(e.target.value)}
+                      style={dynamicFormStyle}
+                      Color0={Color0}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div style={contentBack}>
-            <div style={buttonSize}>
-              <div style={dynamicButtonBackDesign} onClick={handlePopUp}>
-                <div style={dynamicButtonDesign} onClick={reload}>
-                  usui
-                </div>
-                <StyledRangeInput
-                  value={densityState}
-                  type="range"
-                  min="0"
-                  max="100"
-                  step="10"
-                  onChange={(e) => setDensityState(e.target.value)}
-                  style={{ width: "100%" }}
-                  Color0={Color0}
-                  Color2={Color2}
-                />
-                <div style={dynamicButtonDesign} onClick={reload}>
-                  koi
+              <div style={contentBack}>
+                <div style={buttonSize}>
+                  <div style={dynamicButtonBackDesign} onClick={handlePopUp}>
+                    <div style={dynamicButtonDesign} onClick={reload}>
+                      usui
+                    </div>
+                    <StyledRangeInput
+                      value={densityState}
+                      type="range"
+                      min="0"
+                      max="100"
+                      step="10"
+                      onChange={(e) => setDensityState(e.target.value)}
+                      style={{ width: "100%" }}
+                      Color0={Color0}
+                      Color2={Color2}
+                    />
+                    <div style={dynamicButtonDesign} onClick={reload}>
+                      koi
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div style={contentBack}>
-            <div style={buttonSize}>
-              <div style={dynamicMakeButtonBackDesign} onClick={handlePopUp}>
-                <div
-                  style={dynamicButtonDesign}
-                  onClick={handleMakeButtonClick}
-                >
-                  make
+              <div style={contentBack}>
+                <div style={buttonSize}>
+                  <div
+                    style={dynamicMakeButtonBackDesign}
+                    onClick={handlePopUp}
+                  >
+                    <div
+                      style={dynamicButtonDesign}
+                      onClick={handleMakeButtonClick}
+                    >
+                      make
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
-export default TestPage;
+export default MainPage;
