@@ -1,46 +1,26 @@
-# Getting Started with Create React App
+# 🎨 Color Sync
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Color Sync** は、テーマを入力すると適した配色を提案してくれる Web アプリです。
 
-## Available Scripts
+## 🔗 デモ
+[Color Sync](https://color-sync-front.vercel.app/)
 
-In the project directory, you can run:
+## 📂 リポジトリ
+- **フロントエンド:** [color-sync-front](https://github.com/k4nkan?tab=repositories)  
+- **バックエンド:** [color-sync-back](https://github.com/k4nkan?tab=repositories#:~:text=Star-,color%2Dsync%2Dback,-Public)
 
-### `yarn start`
+## 🛠 技術スタック
+### フロントエンド
+- React
+- Tailwind CSS
+- Framer Motion (アニメーション)
+- React Icons (アイコン)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### バックエンド
+- Gemini API
+- Next.js API Routes
+- Vercel (デプロイ)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ✨ 工夫した点
+API に関する理解を深めるために制作しました。  
+バックエンドを別のリポジトリで管理し、デプロイ後にフロントエンドでフェッチする形を採用しました。  
